@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+@model List<OnlineExamPortalBasic.Models.Subject>
+
+<body>
+    <div>
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        <br />
+        <br />
+        <div class="col-lg-3"></div>
+        <div class="col-lg-4">
+            <table class="table">
+                <thead class="btn-primary">
+                    <tr>
+                        <th>Subject Name</th>
+                        
+                    </tr>
+                </thead>
+                @{
+                    int count = 0;
+                    foreach (var x in Model)
+                    {
+
+
+                        <tbody>
+                            @if (count % 3 == 0)
+                            {
+                                <tr class="success" style="opacity:1.0">
+                                    <td>@x.SubjectName</td>
+                                   
+                                </tr>
+                            }
+
+                            @if (count % 3 == 1)
+                            {
+                                <tr class="danger" style="opacity:1.0">
+                                    <td>@x.SubjectName</td>
+                                    
+                                </tr>
+                            }
+
+                            @if (count % 3 == 2)
+                            {
+                                <tr class="info" style="opacity:1.0">
+                                    <td>@x.SubjectName</td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                            count++;
+                    }
+
+                }
+            </table>
+        </div>
+
+    </div>
+</body>
+

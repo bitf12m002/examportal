@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+@model OnlineExamPortalBasic.Models.User
+
+<body>
+    <div>
+        <br />
+        <br />
+        
+            @Html.Partial("~/Views/AdminPartial.cshtml");
+
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            @using (Html.BeginForm("Edit", "Admin", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Id)
+                @Html.LabelFor(m => m.firstName)<br />
+                @Html.EditorFor(m => m.firstName)<br /><br />
+
+                @Html.LabelFor(m => m.lastName)<br />
+                @Html.EditorFor(m => m.lastName)<br /><br />
+
+                @Html.LabelFor(m => m.username)<br />
+                @Html.EditorFor(m => m.username)<br /><br />
+
+                @Html.LabelFor(m => m.email)<br />
+                @Html.EditorFor(m => m.email)<br /><br />
+
+                @Html.LabelFor(m => m.password)<br />
+                @Html.EditorFor(m => m.password)<br /><br />
+
+                @Html.LabelFor(m => m.type)<br />
+                @Html.EditorFor(m => m.type)<br /><br />
+                <input type="submit" value="Save" />
+            }
+        </div>
+    </div>
+</body>
+

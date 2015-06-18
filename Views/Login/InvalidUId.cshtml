@@ -1,0 +1,81 @@
+﻿@model OnlineExamPortalBasic.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/mystyle.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style=" background:no-repeat;background-image:url(/Content/login.jpg)">
+
+    <nav class="nav navbar-fixed-top navbar-inverse " role="navigation">
+        <div class="nav navbar-header" style="padding-left:35%;padding-top:0.5%">
+            <h1 style="color:white;font-family:'Lucida Handwriting'; ">Online Exam Portal</h1>
+        </div>
+        <div class="pull-right" style=" padding-right:15px;padding-top:1.5%">
+            @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-lg btn-success" })
+            <!--<a href="/Login/Register"><input type="submit" class="btn btn-lg btn-success" value="Register" /></a>-->
+        </div>
+    </nav>
+    <hr />
+    <br />
+    <br />
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-4" style="opacity:0.6; padding-top:3% ;color:black;background-color:lightblue;padding-right:0.5%">
+
+
+        <div class="col-lg-4">
+            <br />
+
+
+
+            <br />
+        </div>
+        <div class="col-lg-6">
+
+            <br />
+            <p>Invalid username<br /> or password </p>
+
+            <div class="right">
+                @Html.ActionLink("SIGN IN", "Index", null, new { @class = "btn btn-lg btn-primary" })
+            </div>
+
+            <br />
+            <br />
+
+
+            <!--
+            <form action="#" method="post">
+                <br />
+                <input style="border:solid;font-size:large" type="email" name="userName" required="required" class="btn" />
+                <br />
+                <br />
+                <input style="border:solid;font-size:large" type="password" name="pass" required="required" class="btn" />
+                <br />
+                <br />
+                <div class="col-lg-6"></div>
+                <div class="right">
+                    <input type="submit" value="Sign In" class="btn btn-lg btn-primary " style="border:solid;height:50px;width:250px" />
+                </div>
+
+                <br />
+                <br />
+
+            </form>
+                -->
+
+        </div>
+    </div>
+</body>
+</html>

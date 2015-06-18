@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+@model OnlineExamPortalBasic.Models.QuestionBank
+
+<body>
+    <div>
+
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        <br />
+        <br />
+
+        <div class="col-lg-9 pull-right" style="padding-left:10%;padding-top:8% ;">
+
+            <div class="col-lg-4 " style=" color: white">
+                
+                @using (Html.BeginForm("#", "Login", FormMethod.Post))
+                {
+                    @Html.LabelFor(m => m.question, "Question")
+                    <br />
+                    <br />
+                    <br />
+                    @Html.LabelFor(m => m.optionA, "Option A")
+
+                    <br />
+                    <br />
+                    @Html.LabelFor(m => m.optionB, "Option B")
+
+                    <br />
+                    <br />
+                    <br />
+                    @Html.LabelFor(m => m.optionC, "Option C")
+                    <br />
+                    <br />
+                    @Html.LabelFor(m => m.optionD, "Option D")
+
+                    <br />
+                    <br />
+                    <br />
+
+                    @Html.LabelFor(m => m.correctOption, "Correct Option")
+
+                    
+                    <br />
+                    <br />
+
+                    @Html.LabelFor(m => m.subject, "Subject")
+
+                    <br />
+                    <br />
+
+                    <br />
+
+
+                }
+
+
+            </div>
+            <div class="col-lg-6" style="color:flavor">
+
+                @using (Html.BeginForm("QuestionAdded", "Admin", FormMethod.Post))
+                {
+
+
+                    @Html.TextBoxFor(m => m.question, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.optionA, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.optionB, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.optionC, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.optionD, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.correctOption, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.subject, new { @class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    <br />
+                   
+                    <div class="pull-right " style="margin-right:40%; margin-top:5%">
+                        <input type="submit" value="Add" class="btn btn-lg btn-primary" />
+                    </div>
+
+
+                }
+            </div>
+        </div>
+
+
+    </div>
+</body>
+

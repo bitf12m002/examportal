@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadPicture</title>
+</head>
+<body>
+    <div>
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+    </div>
+    <div>
+        @using (Html.BeginForm("saveUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input name="uploadFile" type="file" />
+            <input type="submit" value="Upload File" />
+        }
+
+    </div>
+</body>
+</html>

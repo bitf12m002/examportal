@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<body>
+
+    @{
+
+        <div style="background-color:white; opacity:1.0;" class="col-lg-2">
+            <br />
+
+            <br />
+
+            <ul class="nav navbar">
+                @{
+                    int count1 = 0;
+                    foreach (var x in ViewBag.Subjects)
+                    {
+                        if (count1 % 2 == 0)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">@x.SubjectName</a></li>
+                        }
+                        if (count1 % 2 == 1)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">@x.SubjectName</a></li>
+                        }
+                        count1++;
+                    }
+                }
+
+
+            </ul>
+        </div>
+    }
+    
+
+    <div class="col-lg-5" style="font-size:20px; padding-top:10% ;color:white;padding-right:0.5%">
+        <p style="font-size:35px">About</p>
+        <ul>
+
+            <li>This is an Online Exam Portal</li>
+            <li>Taken as a term project in EAD (Enterprise Application Development)</li>
+            <li>Developed Under the consultancy of Sir Bilal Javed Iqbal</li>
+
+        </ul>
+    </div>
+</body>

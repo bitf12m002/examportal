@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+@using OnlineExamPortalBasic.Models
+@model List<OnlineExamPortalBasic.Models.Result>
+<!DOCTYPE html>
+
+
+<body>
+    <div>
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        <br />
+        <br />
+        
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            <table class="table" >
+                <thead class="btn-primary">
+                    <tr>
+                        <th>Username</th>
+                        <th>Total Ques</th>
+                        <th>Wrong</th>
+                        <th>Correct</th>
+                        
+                    </tr>
+                </thead>
+                @{
+                    int count = 0;
+                    foreach (var x in Model)
+                    {
+
+
+                        <tbody style="opacity:1.0">
+                            @if (count % 3 == 0)
+                            {
+                                <tr class="success">
+                                    <td>@x.username</td>
+                                    <td>@x.Total</td>
+                                    <td>@x.wrong</td>
+                                    <td>@x.correct</td>
+
+                                </tr>
+                            }
+
+                            @if (count % 3 == 1)
+                            {
+                                <tr class="danger">
+                                    <td>@x.username</td>
+                                    <td>@x.Total</td>
+                                    <td>@x.wrong</td>
+                                    <td>@x.correct</td>
+                                </tr>
+                            }
+
+                            @if (count % 3 == 2)
+                            {
+                                <tr class="info">
+                                    <td>@x.username</td>
+                                    <td>@x.Total</td>
+                                    <td>@x.wrong</td>
+                                    <td>@x.correct</td>
+                                </tr>
+                            }
+                        </tbody>
+                            count++;
+                    }
+
+                }
+            </table>
+        </div>
+
+    </div>
+</body>
+

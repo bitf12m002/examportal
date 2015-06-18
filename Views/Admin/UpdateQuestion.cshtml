@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+
+<body>
+    <div>
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        <br /><br />
+        <div class="col-lg-2"></div>
+
+        @{
+            int count = 0;
+            <div class="col-lg-4">
+                <table class="table">
+                    <thead class="btn-primary">
+                        <tr>
+                            <th>Question</th>
+                            <th>OptionA</th>
+                            <th>OptionB</th>
+                            <th>OptionC</th>
+                            <th>OptionD</th>
+                            <th>CorrectOption</th>
+                            <th>Subject</th>
+                            <th>Quiz</th>
+                            <th>Update</th>
+
+                        </tr>
+                    </thead>
+                    @foreach (QuestionBank x in Model)
+                    {
+                        <tbody>
+                            @if (count % 3 == 0)
+                            {
+                                <tr class="success" style="opacity:1.0">
+                                    <td>@x.question</td>
+                                    <td>@x.optionA</td>
+                                    <td>@x.optionB</td>
+                                    <td>@x.optionC</td>
+                                    <td>@x.optionD</td>
+                                    <td>@x.correctOption</td>
+                                    <td>@x.subject</td>
+                                   
+                                    <td><a href="/Admin/EditQuestion/@x.Id" class="btn btn-primary">Edit</a></td>
+                                  </tr>
+                            }
+
+                            @if (count % 3 == 1)
+                            {
+                                <tr class="danger" style="opacity:1.0">
+                                    <td>@x.question</td>
+                                    <td>@x.optionA</td>
+                                    <td>@x.optionB</td>
+                                    <td>@x.optionC</td>
+                                    <td>@x.optionD</td>
+                                    <td>@x.correctOption</td>
+                                    <td>@x.subject</td>
+                                    
+                                    <td><a href="/Admin/EditQuestion/@x.Id" class="btn btn-primary">Edit</a></td>
+                                </tr>
+                            }
+
+                            @if (count % 3 == 2)
+                            {
+                                <tr class="info" style="opacity:1.0">
+                                    <td>@x.question</td>
+                                    <td>@x.optionA</td>
+                                    <td>@x.optionB</td>
+                                    <td>@x.optionC</td>
+                                    <td>@x.optionD</td>
+                                    <td>@x.correctOption</td>
+                                    <td>@x.subject</td>
+                                   
+                                    <td><a href="/Admin/EditQuestion/@x.Id" class="btn btn-primary">Edit</a></td>
+                                                           </tr>
+                            }
+                        </tbody>
+                            count++;
+                    }
+                </table>
+            </div>
+
+        }
+    </div>
+</body>
+

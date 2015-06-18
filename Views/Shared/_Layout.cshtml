@@ -1,0 +1,263 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/mystyle.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+    
+</head>
+<body style="background-image:url(/Content/11419980_854621731296945_357606655_n.jpg)">
+
+
+   <!-- <body style="background-color:back">l-->
+        <nav class="nav navbar-fixed-top navbar-inverse" role="navigation" style="background-color:white">
+            <div class="nav navbar-header " style="padding-left:5%;padding-top:0.5%">
+
+                <h3 style="color:black;font-family:'Lucida Handwriting'">Online Exam Portal</h3>
+            </div>
+            <div class="pull-right" style="padding-right:15px;padding-top:1.5%">
+
+                <a href="/User/SignOut"><input type="submit" class="btn btn-danger hvr-bounce-in" value="SIGN OUT" style="border:solid;height:50px;width:150px" /></a>
+            </div>
+            <div>
+                <ul class=" nav navbar-nav pull-right navbar" style="padding-top:25px;padding-right:5%">
+                    <li><a href="/User/Index" style="font-family:'Lucida Handwriting'" class="hvr-bounce-to-top">Home</a></li>
+                    <li><a href="/User/About" style="font-family:Lucida Handwriting" class="hvr-bounce-to-bottom">About</a></li>
+                    <li><a href="/User/Contact" style="font-family:Lucida Handwriting" class="hvr-bounce-to-top">Contact</a></li>
+                    <li><a href="/User/notes" style="font-family:Lucida Handwriting" class="hvr-bounce-to-top">Notes</a></li>
+                    <li><a href="/User/MyInfo" style="font-family:Lucida Handwriting" class="hvr-bounce-to-top">My Info</a></li>
+                    <li><a href="/User/changeInfo" style="font-family:Lucida Handwriting" class="hvr-bounce-to-top">Update Info</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <!--  <div style="background-color:burlywood; opacity:0.6;" class="col-lg-2" >
+              <br />
+
+              <br />
+
+              <ul class="nav navbar">
+                  <li><a href="/User/Computer9" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Computer-9</a></li>
+                  <li><a href="/User/Computer10"  style=" font-family:'lucida handwriting'; color:black;" class="hvr-bounce-to-left">Computer-10</a></li>
+                  <li><a href="/User/Computer11" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Computer-11</a></li>
+                  <li><a href="/User/Computer12" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">Computer-12</a></li>
+                  <li><a href="/User/Physics9" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Physics-9</a></li>
+                  <li><a href="/User/Physics10" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">Physics-10</a></li>
+                  <li><a href="/User/Physics11" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Physics-11</a></li>
+                  <li><a href="/User/Physics12" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">Physics-12</a></li>
+                  <li><a href="/User/Mathematics9" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Mathematics-9</a></li>
+                  <li><a href="/User/Mathematics10" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">Mathematics-10</a></li>
+                  <li><a href="/User/Mathematics11" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">Mathematics-11</a></li>
+                  <li><a href="/User/Mathematics12" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">Mathematics-12</a></li>
+
+              </ul>
+          </div>    -->
+        @RenderBody()
+
+        @Scripts.Render("~/bundles/jquery")
+
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+                 *  Simple image gallery. Uses default settings
+                 */
+
+                $('.fancybox').fancybox();
+
+                /*
+                 *  Different effects
+                 */
+
+                // Change title type, overlay closing speed
+                $(".fancybox-effects-a").fancybox({
+                    helpers: {
+                        title: {
+                            type: 'outside'
+                        },
+                        overlay: {
+                            speedOut: 0
+                        }
+                    }
+                });
+
+                // Disable opening and closing animations, change title type
+                $(".fancybox-effects-b").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+
+                    helpers: {
+                        title: {
+                            type: 'over'
+                        }
+                    }
+                });
+
+                // Set custom style, close if clicked, change title type and overlay color
+                $(".fancybox-effects-c").fancybox({
+                    wrapCSS: 'fancybox-custom',
+                    closeClick: true,
+
+                    openEffect: 'none',
+
+                    helpers: {
+                        title: {
+                            type: 'inside'
+                        },
+                        overlay: {
+                            css: {
+                                'background': 'rgba(238,238,238,0.85)'
+                            }
+                        }
+                    }
+                });
+
+                // Remove padding, set opening and closing animations, close if clicked and disable overlay
+                $(".fancybox-effects-d").fancybox({
+                    padding: 0,
+
+                    openEffect: 'elastic',
+                    openSpeed: 150,
+
+                    closeEffect: 'elastic',
+                    closeSpeed: 150,
+
+                    closeClick: true,
+
+                    helpers: {
+                        overlay: null
+                    }
+                });
+
+                /*
+                 *  Button helper. Disable animations, hide close button, change title type and content
+                 */
+
+                $('.fancybox-buttons').fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+
+                    closeBtn: false,
+
+                    helpers: {
+                        title: {
+                            type: 'inside'
+                        },
+                        buttons: {}
+                    },
+
+                    afterLoad: function () {
+                        this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                    }
+                });
+
+
+                /*
+                 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+                 */
+
+                $('.fancybox-thumbs').fancybox({
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+
+                    closeBtn: false,
+                    arrows: false,
+                    nextClick: true,
+
+                    helpers: {
+                        thumbs: {
+                            width: 50,
+                            height: 50
+                        }
+                    }
+                });
+
+                /*
+                 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+                */
+                $('.fancybox-media')
+                    .attr('rel', 'media-gallery')
+                    .fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none',
+                        prevEffect: 'none',
+                        nextEffect: 'none',
+
+                        arrows: false,
+                        helpers: {
+                            media: {},
+                            buttons: {}
+                        }
+                    });
+
+                /*
+                 *  Open manually
+                 */
+
+                $("#fancybox-manual-a").click(function () {
+                    $.fancybox.open('1_b.jpg');
+                });
+
+                $("#fancybox-manual-b").click(function () {
+                    $.fancybox.open({
+                        href: 'iframe.html',
+                        type: 'iframe',
+                        padding: 5
+                    });
+                });
+
+                $("#fancybox-manual-c").click(function () {
+                    $.fancybox.open([
+                        {
+                            href: '1_b.jpg',
+                            title: 'My title'
+                        }, {
+                            href: '2_b.jpg',
+                            title: '2nd title'
+                        }, {
+                            href: '3_b.jpg'
+                        }
+                    ], {
+                        helpers: {
+                            thumbs: {
+                                width: 75,
+                                height: 50
+                            }
+                        }
+                    });
+                });
+
+
+            });
+        </script>
+        <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+        <script src="~/Scripts/jquery.fancybox-thumbs.js"></script>
+        <script src="~/Scripts/jquery.fancybox-buttons.js"></script>
+        <script src="~/Scripts/jquery.fancybox-media.js"></script>
+        <script src="~/Scripts/jquery.fancybox.js"></script>
+        <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+        <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+        <script src="~/Scripts/jquery-1.10.1.min.js"></script>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

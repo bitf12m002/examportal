@@ -1,0 +1,106 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model OnlineExamPortalBasic.Models.User
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>changeInfo</title>
+</head>
+<body >
+    @{
+
+        <div style="background-color:white; opacity:1.0;" class="col-lg-2">
+            <br />
+
+            <br />
+
+            <ul class="nav navbar">
+                @{
+                    int count1 = 0;
+                    foreach (var x in ViewBag.Subjects)
+                    {
+                        if (count1 % 2 == 0)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">@x.SubjectName</a></li>
+                        }
+                        if (count1 % 2 == 1)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">@x.SubjectName</a></li>
+                        }
+                        count1++;
+                    }
+                }
+
+
+            </ul>
+        </div>
+    }
+    <div class="col-lg-9 pull-right" style="padding-left:10%;padding-top:8% ;">
+
+        <div class="col-lg-4 " style=" color: white">
+            <br />
+            @using (Html.BeginForm("#", "Login", FormMethod.Post))
+            {
+                @Html.LabelFor(m => m.firstName, "First Name")
+                <br />
+                <br />
+                
+                @Html.LabelFor(m => m.lastName, "Last Name")
+                
+                <br />
+                <br />
+                @Html.LabelFor(m => m.email, "Email")
+
+                <br />
+                <br />
+                @Html.LabelFor(m => m.password, "Password")
+                <br />
+                <br />
+                <br />
+
+
+            }
+
+
+        </div>
+        <div class="col-lg-6" style="color:flavor">
+
+            @using (Html.BeginForm("saveUpload", "User", FormMethod.Post,new { enctype = "multipart/form-data" }))
+            {
+                <br />
+                @Html.HiddenFor(m => m.username, new { @class = "btn", required = "required" })
+                @Html.HiddenFor(m => m.Id, new { @class = "btn", required = "required" })
+                @Html.HiddenFor(m => m.type, new { @class = "btn", required = "required" })
+                @Html.HiddenFor(m => m.paid, new { @class = "btn", required = "required" })
+                @Html.HiddenFor(m => m.confirmPassword, new { @class = "btn", required = "required" })
+                
+                
+                @Html.EditorFor(m => m.firstName,new { @class = "btn", required = "required" })
+                <br />
+                <br />
+                @Html.EditorFor(m => m.lastName, new { @class = "btn", required = "required" })
+                <br />
+                <br />               
+                @Html.EditorFor(m => m.email, new { @class = "btn", required = "required" })
+                <br />
+                <br />
+                @Html.EditorFor(m => m.password, new { @class = "btn", required = "required" })
+                <br />
+                <br />
+                <br />
+               <input name="uploadFile" type="file" />
+                <div class="pull-right " style="margin-right:40%; margin-top:5%">
+                    <input type="submit" value="Update" class="btn btn-lg btn-primary" />
+                </div>
+
+
+            }
+            </div>
+        </div>
+</body>
+</html>

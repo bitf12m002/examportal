@@ -1,0 +1,244 @@
+﻿@using OnlineExamPortalBasic.Models
+@model OnlineExamPortalBasic.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/mystyle.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="background-image: url(/Content/11419980_854621731296945_357606655_n.jpg); height:auto; width:auto ">
+
+    <nav class="nav navbar-fixed-top navbar-inverse " role="navigation">
+        <div class="nav navbar-header" style="padding-left:35%;padding-top:0.5%">
+            <h1 style="color:white;font-family:'Lucida Handwriting' ;text-align:center">Online Exam Portal</h1>
+        </div>
+        <div class="pull-right" style="padding-right:15px;padding-top:1.5%">
+            @Html.ActionLink("SIGN IN", "Index", null, new { @class = "btn btn-lg btn-primary" })
+         <!--<a href="/Login/Index"><input type="submit" class="btn btn-lg btn-primary" value="SIGN IN" /></a>-->   
+        </div>
+    </nav>
+    <hr />
+
+
+
+
+    
+
+
+
+    <div class="col-lg-9 pull-right" style="padding-left:30%;padding-top:2% ;color:green">
+
+        <div class="col-lg-4" style="color:gray">
+            <br />
+            @using (Html.BeginForm("Reg", "Login", FormMethod.Post))
+            {
+
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend style="color:white">User</legend>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.firstName)
+                        
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.firstName)
+                        @Html.ValidationMessageFor(model => model.firstName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.lastName)
+                       
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.lastName)
+                        @Html.ValidationMessageFor(model => model.lastName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.username)
+                  
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.username, new { id = "UserName"})
+                        @Html.ValidationMessageFor(model => model.username)
+                        <input type="button" id="b1" value="Check" class="btn btn-primary" />
+                        <div id="result"></div>
+                        @Scripts.Render("~/bundles/jquery")
+                        <script>
+
+                            $(document).ready(function () {
+
+                                $('#checking').hide();
+
+                                $('#b1').click(function () {
+
+                                    var userName = $('#UserName').val();
+
+                                    //alert('User Name ='+ userName);
+                                    $('#checking').show();
+                                    $.getJSON("/Login/CheckUserName?UserName=" + userName, function (data) {
+                                        $('#checking').hide();
+                                        if (data) {
+                                            $('#result').text("User already exists in database");
+
+                                        }
+                                        else {
+                                            $('#result').text("User Name is available");
+                                        }
+                                    });
+
+                                });
+
+                            });
+                        </script>
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.email)
+
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.email)
+                        @Html.ValidationMessageFor(model => model.email)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.password)
+
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(model => model.password)
+                        @Html.ValidationMessageFor(model => model.password)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.confirmPassword)
+
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(model => model.confirmPassword)
+                        @Html.ValidationMessageFor(model => model.confirmPassword)
+                    </div>
+                    
+                    <p>
+                        <input type="submit" value="Create" class="btn btn-success"/>
+                    </p>
+                </fieldset>
+            }
+            </div>
+        </div>
+         <!--  using (Html.BeginForm("#", "Login", FormMethod.Post))
+            {
+                Html.LabelFor(m => m.firstName)
+                <br />
+                <br />
+                <br />
+                Html.LabelFor(m => m.lastName)
+                <br />
+                <br />
+                Html.LabelFor(m => m.username)
+                <br />
+                <br />
+                <br />
+                Html.LabelFor(m => m.email)
+                
+                <br />
+                <br />
+                Html.LabelFor(m => m.password)
+                <br />
+                <br />
+                <br />
+                Html.Label("Confirm Password")
+
+            }
+
+            
+        </div>
+        <div class="col-lg-6">
+            
+            using (Html.BeginForm("Reg", "Login", FormMethod.Post))
+            {
+                <fieldset>
+                    Html.ValidationSummary(true);
+                    <br />
+                    Html.TextBoxFor(m => m.firstName, new { class = "btn", required = "required" })
+                    <br />
+                    <br />
+
+                    Html.TextBoxFor(m => m.lastName, new { class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    Html.TextBoxFor(m => m.username, new { class = "btn", required = "required" })
+                    <br />
+                    <br />
+
+                    Html.TextBoxFor(m => m.email, new { class = "btn", required = "required" })
+
+                    <br />
+                    <br />
+                    Html.EditorFor(m => m.password, new { class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    <br />
+                    Html.EditorFor(m => m.confirmPassword, new { class = "btn", required = "required" })
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="pull-right">
+                        <input type="submit" value="Register" class="btn btn-lg btn-success" />
+                    </div>
+                </fieldset>
+
+            }
+               
+
+            <form action="#" method="post">
+                
+                <input style="opacity:0.6" type="text" name="fname" required="required" class="btn" />
+                <br />
+                <br />
+                <input style="opacity:0.6" type="text" name="lname" required="required" class="btn" />
+                <br />
+                <br />
+                <input style="opacity:0.6" type="text" name="uname" required="required" class="btn" />
+                <br />
+                <br />
+                <input style="opacity:0.6" type="email" name="e-mail" required="required" class="btn" />
+                <br />
+                <br />
+                <input style="opacity:0.6" type="password" name="pass" required="required" class="btn" />
+                <br />
+                <br />
+
+                <div class="pull-right">
+                    <input type="submit" value="Register" class="btn btn-lg btn-success" />
+                </div>
+            </form>
+
+   
+
+        </div>
+
+
+    </div>-->
+
+    <footer class="navbar-fixed-bottom navbar-inverse">
+        <div style="text-align: center; color:wheat" class="navbar-inverse">
+            <p class="list-inline small">Copyright &copy; 2015. Design by  Muhammad Junaid Tariq</p>
+            <p class="list-inline small">BITF12M002</p>
+
+        </div>
+    </footer>
+</body>
+</html>

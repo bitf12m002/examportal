@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+
+<body>
+    <div>
+        
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        <br />
+        <br />
+        <div class="col-lg-2"></div>
+
+     @{
+     int count=0;
+            <div class="col-lg-4">
+                <table class="table">
+                    <thead class="btn-primary">
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Type</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    @foreach (User x in Model)
+                    {
+                        <tbody>
+                            @if (count % 3 == 0)
+                            {
+                                <tr class="success" style="opacity:1.0">
+                                    <td>@x.firstName</td>
+                                    <td>@x.lastName</td>
+                                    <td>@x.username</td>
+                                    <td>@x.email</td>
+                                    <td>@x.password</td>
+                                    <td>@x.type</td>
+                                   
+                                    <td><a href="/Admin/DeleteIt/@x.Id" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            }
+
+                            @if (count % 3 == 1)
+                            {
+                                <tr class="danger" style="opacity:1.0">
+                                    <td>@x.firstName</td>
+                                    <td>@x.lastName</td>
+                                    <td>@x.username</td>
+                                    <td>@x.email</td>
+                                    <td>@x.password</td>
+                                    <td>@x.type</td>
+                                    <td><a href="/Admin/DeleteIt/@x.Id" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            }
+
+                            @if (count % 3 == 2)
+                            {
+                                <tr class="info" style="opacity:1.0">
+                                    <td>@x.firstName</td>
+                                    <td>@x.lastName</td>
+                                    <td>@x.username</td>
+                                    <td>@x.email</td>
+                                    <td>@x.password</td>
+                                    <td>@x.type</td>
+                                    <td><a href="/Admin/DeleteIt/@x.Id" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                           count++;
+                    }
+                </table>
+            </div>
+       
+     }
+        </div>
+</body>
+

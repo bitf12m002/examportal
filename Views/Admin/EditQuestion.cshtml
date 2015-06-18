@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+@using OnlineExamPortalBasic.Models
+@model OnlineExamPortalBasic.Models.QuestionBank
+<!DOCTYPE html>
+
+
+<body>
+    <div>
+        <br />
+        <br />
+
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            @using (Html.BeginForm("QuestionEdited", "Admin", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Id)
+                @Html.LabelFor(m => m.question)<br />
+                @Html.EditorFor(m => m.question)<br /><br />
+
+                @Html.LabelFor(m => m.optionA)<br />
+                @Html.EditorFor(m => m.optionA)<br /><br />
+
+                @Html.LabelFor(m => m.optionB)<br />
+                @Html.EditorFor(m => m.optionB)<br /><br />
+
+                @Html.LabelFor(m => m.optionC)<br />
+                @Html.EditorFor(m => m.optionC)<br /><br />
+
+                @Html.LabelFor(m => m.optionD)<br />
+                @Html.EditorFor(m => m.optionD)<br /><br />
+
+                @Html.LabelFor(m => m.correctOption)<br />
+                @Html.EditorFor(m => m.correctOption)<br /><br />
+                
+                @Html.LabelFor(m => m.subject)<br />
+                @Html.EditorFor(m => m.subject)<br /><br />
+                
+                <input type="submit" value="Save" />
+            }
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using OnlineExamPortalBasic.Models
+@model List<OnlineExamPortalBasic.Models.Subject>
+
+<body>
+    <div>
+        @Html.Partial("~/Views/AdminPartial.cshtml");
+        
+    </div>
+    @{
+        <div class="col-lg-5" style="margin-top:20%;margin-left:20%">
+            <p style="font-size:20px; color:white"> Mostly given quiz is  @Model.ElementAt(0).SubjectName</p>
+
+            <a href="/User/Computer9/@Model.ElementAt(0).Id" class="btn btn-primary" style="margin-left:15%">Take That Quiz</a>
+        </div>
+    }
+</body>
+

@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Computer9Exam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using OnlineExamPortalBasic.Models
+@model List<OnlineExamPortalBasic.Models.QuestionBank>
+
+
+
+<body>
+    
+
+    @{
+
+        <div style="background-color:white; opacity:1.0;" class="col-lg-2">
+            <br />
+
+            <br />
+
+            <ul class="nav navbar">
+                @{
+                    int count1 = 0;
+                    foreach (var x in ViewBag.Subjects)
+                    {
+                        if (count1 % 2 == 0)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-right">@x.SubjectName</a></li>
+                        }
+                        if (count1 % 2 == 1)
+                        {
+                            <li><a href="/User/Computer9/@x.Id" style="font-family:'Lucida Handwriting'; color:black;" class="hvr-bounce-to-left">@x.SubjectName</a></li>
+                        }
+                        count1++;
+                    }
+                }
+
+
+            </ul>
+        </div>
+    }
+    
+    <br />
+    <br />   
+
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4" style="margin-left:10%;margin-top:10%">
+        @{
+
+    int count = 0;
+            if (Session["count"] != null)
+            {
+                count = int.Parse(Session["count"] as string);
+            }
+            if (count >= 0)
+            {
+
+
+                <form action="/User/Computer9Loop" method="post">
+                    @if (Model.Count == 0)
+                    {
+
+                        <p style="font-size:20px ;color:white;margin-top:12%; margin-left:20%">No Questions Yet</p><br />
+
+                    }
+                    else
+                    {
+                        <label style="color:white">@Model.ElementAt(count).question</label><br />
+
+                        <input type="radio" name="correct" value="A"><label style="color:white">@Model.ElementAt(count).optionA </label><br />
+                        <input type="radio" name="correct" value="B"><label style="color:white">@Model.ElementAt(count).optionB </label><br />
+                        <input type="radio" name="correct" value="C"><label style="color:white">@Model.ElementAt(count).optionC </label><br />
+                        <input type="radio" name="correct" value="D"><label style="color:white">@Model.ElementAt(count).optionD </label><br />
+
+                        <input type="submit" value="Answer" />
+                    
+                    }
+                </form>
+
+
+            }
+        }
+    </div>
+</body>
