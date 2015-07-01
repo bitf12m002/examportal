@@ -1,0 +1,69 @@
+﻿@model List<OnlineExamPortalBasic.Models.User>
+
+
+<body>
+
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+        <table class="table">
+            <thead class="btn-primary">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            @{
+                int count = 0;
+                foreach (var x in Model)
+                {
+
+
+                    <tbody>
+                        @if (count % 3 == 0)
+                        {
+                            <tr class="success" style="opacity:1.0">
+                                <td>@x.firstName</td>
+                                <td>@x.lastName</td>
+                                <td>@x.username</td>
+                                <td>@x.email</td>
+                                <td>@x.password</td>
+                                <td>@x.type</td>
+                            </tr>
+                        }
+
+                        @if (count % 3 == 1)
+                        {
+                            <tr class="danger" style="opacity:1.0">
+                                <td>@x.firstName</td>
+                                <td>@x.lastName</td>
+                                <td>@x.username</td>
+                                <td>@x.email</td>
+                                <td>@x.password</td>
+                                <td>@x.type</td>
+                            </tr>
+                        }
+
+                        @if (count % 3 == 2)
+                        {
+                            <tr class="info" style="opacity:1.0">
+                                <td>@x.firstName</td>
+                                <td>@x.lastName</td>
+                                <td>@x.username</td>
+                                <td>@x.email</td>
+                                <td>@x.password</td>
+                                <td>@x.type</td>
+                            </tr>
+                        }
+                    </tbody>
+                        count++;
+                }
+
+            }
+        </table>
+    </div>
+
+</body>
